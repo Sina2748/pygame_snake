@@ -5,7 +5,7 @@ from pygame.math import Vector2
 class SNAKE:
     def __init__(self):
         self.body = [Vector2(5,9), Vector2(4,9), Vector2(3,9)]
-        self.direction = Vector2(1,0)
+        self.direction = Vector2(0,0)
         self.new_block = False
 
     def draw_snake(self):
@@ -32,7 +32,7 @@ class SNAKE:
 
     def reset(self):
         self.body = [Vector2(5,9), Vector2(4,9), Vector2(3,9)]
-        self.direction = Vector2(1,0)
+        self.direction = Vector2(0,0)
      
 
 
@@ -81,7 +81,7 @@ class MAIN:
 
     def game_over(self):
         self.snake.reset()
-        print("over")
+        #print("over")
          
 
 
