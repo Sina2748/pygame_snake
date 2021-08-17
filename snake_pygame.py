@@ -1,8 +1,20 @@
 import pygame, sys
 
+class SNAKe:
+    def __init__(self):
+        pass
+
+
+
+
 pygame.init()
-screen =pygame.display.set_mode((400, 500))
+cell_number = 10
+cell_size = 20
+
+screen =pygame.display.set_mode((cell_number*cell_size*6, cell_number*cell_size*4))
 clock = pygame.time.Clock()
+
+
 
 while True: 
     for event in pygame.event.get():
