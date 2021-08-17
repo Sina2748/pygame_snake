@@ -1,7 +1,7 @@
 import pygame, sys
 
 pygame.init()
-pygame.display.set_mode((400, 500))
+screen =pygame.display.set_mode((400, 500))
 clock = pygame.time.Clock()
 
 while True: 
@@ -10,7 +10,10 @@ while True:
             pygame.quit()
             sys.exit()
 
+    
+    screen.fill((75, 15, 70))
     pygame.display.update()
     clock.tick(60)
 
 """jhgygyg"""
+ 
