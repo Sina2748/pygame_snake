@@ -29,6 +29,10 @@ class SNAKE:
 
     def add_block(self):
         self.new_block = True
+
+    def reset(self):
+        self.body = [Vector2(5,9), Vector2(4,9), Vector2(3,9)]
+        self.direction = Vector2(1,0)
      
 
 
@@ -39,7 +43,7 @@ class FRUIT:
     def draw_fruit(self):
         fruit_rect = pygame.Rect(self.pos.x*cell_size, self.pos.y*cell_size, cell_size, cell_size)
         pygame.draw.rect(screen, (255,255,255), fruit_rect)
-
+ 
     def randomize(self):
         self.x = random.randint(0, 20 - 1)
         self.y = random.randint(0, 20 - 1)
@@ -54,6 +58,7 @@ class MAIN:
     def update(self):
         self.snake.move_snake()
         self.check_collision()
+        self.check_fail()
 
     def draw_elements(self):
         self.snake.draw_snake()
@@ -63,6 +68,21 @@ class MAIN:
         if self.fruit.pos == self.snake.body[0]:
             self.snake.add_block()
             self.fruit.randomize()
+
+    def check_fail(self):
+        for block in self.snake.body[1:]:
+            if block == self.snake.body[0]:
+                self.game_over()
+                
+
+        if not 0 <= self.snake.body[0].x < cell_number or not 0 <= self.snake.body[0].y < cell_number:
+            self.game_over()
+        
+
+    def game_over(self):
+        self.snake.reset()
+        print("over")
+         
 
 
 main = MAIN()
